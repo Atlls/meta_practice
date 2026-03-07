@@ -100,10 +100,11 @@ def grasp(problema, max_iter=20, alpha=0.3):
     return s_best, v_best
 
 if __name__ == "__main__":
-    p = KnapsackProblem(num_objetos=20, peso_maximo=100) # Problema más grande
+    p = KnapsackProblem(load_from_file="k10.txt") # Cargar instancia desde archivo
     
-    mejor_sol, mejor_val = grasp(p, max_iter=1000, alpha=1)
+    mejor_sol, mejor_val = grasp(p, max_iter=1000, alpha=0.85)
     
     print("\n--- RESULTADO FINAL ---")
     print(f"Mejor Valor: {mejor_val}")
+    print(f"Valor Óptimo: {p.optimo}")
     print(f"Configuración: {mejor_sol}")
